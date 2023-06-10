@@ -76,10 +76,11 @@ public class CustomersPage {
     }
 
     public void validationMessageAlert(WebDriver driver, String expectedMessage) throws InterruptedException {
-        Thread.sleep(1000);
+//        Thread.sleep(1000);
         Alert alert = driver.switchTo().alert();
         alert.wait(300);
         Assert.assertEquals(alert.getText(), expectedMessage);
+
     }
 }
 
