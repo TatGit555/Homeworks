@@ -1,11 +1,10 @@
 package Utils;
 
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
+import java.io.File;
 import java.util.Set;
 
 public class BrowserUtils {
@@ -72,9 +71,10 @@ public class BrowserUtils {
                 break;
             }
         }
-
-
-
+    }
+    public static void getScreenShot (WebDriver driver, String packageName){
+        File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        String location = System.getProperty("st/test/java/" + packageName + "/");
     }
 }
 

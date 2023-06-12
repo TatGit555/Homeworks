@@ -1,0 +1,15 @@
+<!--This is smoke tests which are supposed to be run every day in the morning-->
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Smoke Suite">
+    <test name="Bank Smoke">
+        <classes>
+            <class name="COM.test.bank.tests.BankLoginTest"></class>
+        </classes>
+    </test>
+    <test name="OpenChart Smoke">
+        <classes>
+            <class name="COM.test.openchart.tests.OpenChartLoginTest"></class>
+        </classes>
+    </test>
+</suite>

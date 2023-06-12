@@ -31,13 +31,13 @@ public class BankManagerTest extends BankTestBase{
         @Test
         public void validateOpenAccount() throws InterruptedException {
 
-//            WebDriverManager.chromedriver().setup();
-//            ChromeOptions options = new ChromeOptions();
-//            options.addArguments("--remote-allow-origins=*");
-//            WebDriver driver = new ChromeDriver(options);
-//            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-//            driver.manage().window().maximize();
-//            driver.navigate().to("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login");
+            WebDriverManager.chromedriver().setup();
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--remote-allow-origins=*");
+            WebDriver driver = new ChromeDriver(options);
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+            driver.manage().window().maximize();
+            driver.navigate().to("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login");
 
             BankLoginPage loginPage = new BankLoginPage(driver);
             loginPage.clickManagerButton();
@@ -50,13 +50,13 @@ public class BankManagerTest extends BankTestBase{
     @Test
     public void validateAllInfo() throws InterruptedException {
 
-//        WebDriverManager.chromedriver().setup();
-//        ChromeOptions options = new ChromeOptions();
-//        options.addArguments("--remote-allow-origins=*");
-//        WebDriver driver = new ChromeDriver(options);
-//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-//        driver.manage().window().maximize();
-//        driver.navigate().to("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login");
+        WebDriverManager.chromedriver().setup();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
+        WebDriver driver = new ChromeDriver(options);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().window().maximize();
+        driver.navigate().to("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login");
 
         BankLoginPage loginPage = new BankLoginPage(driver);
         loginPage.clickManagerButton();
@@ -71,8 +71,6 @@ public class BankManagerTest extends BankTestBase{
 
         //search customer
         bankManagerPage.customersButtonFunctionality("Ahmet","Baldir","60123");
-
-
     }
 
 }

@@ -40,7 +40,7 @@ public class CustomersPage {
 
     @FindBy(xpath = "//button[@aria-label='Save']")
     WebElement saveNewCustomerButton;
-    @FindBy(id = "")
+    @FindBy(id = "alert")
     WebElement warningMessage;
 
     public void addNewCustomerFunctionality
@@ -75,11 +75,8 @@ public class CustomersPage {
         act.click(saveNewCustomerButton).perform();
     }
 
-    public void validationMessageAlert(WebDriver driver, String expectedMessage) throws InterruptedException {
-//        Thread.sleep(1000);
-        Alert alert = driver.switchTo().alert();
-        alert.wait(300);
-        Assert.assertEquals(alert.getText(), expectedMessage);
+    public void validationMessageAlert(String warningMessage, String expectedMessage) throws InterruptedException {
+        Assert.assertEquals(warningMessage, expectedMessage);
 
     }
 }

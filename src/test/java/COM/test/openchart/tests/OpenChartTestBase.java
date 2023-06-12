@@ -1,10 +1,13 @@
 package COM.test.openchart.tests;
 
+import Utils.BrowserUtils;
+import Utils.DriverHelper;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -16,18 +19,20 @@ public class OpenChartTestBase {
     public WebDriver driver;
     @BeforeMethod
     public void setup() {
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
-        driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.manage().window().maximize();
+//        WebDriverManager.chromedriver().setup();
+//        ChromeOptions options = new ChromeOptions();
+//        options.addArguments("--remote-allow-origins=*");
+//        driver = new ChromeDriver(options);
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+//        driver.manage().window().maximize();
+        driver = DriverHelper.getDriver();
         driver.navigate().to("https://demo.opencart.com/admin/index.php?route=common/login");
-//    @AfterMethod
-//    public void tearDown(){
-//        //driver.quit();
-
-
     }
-
+    @AfterMethod
+    public void tearDown(ITestResult itestresult){
+        if(!itestresult.isSuccess()){
+            BrowserUtils.getScreenShot(driver,"OpenChartPictures");
+        }
+        driver.quit();
+    }
 }
